@@ -351,7 +351,6 @@ function PasswordGate({children}) {
   const [err, setErr] = React.useState(false);
   if (unlocked) return children;
   return (
-    <PasswordGate>
     <div style={{minHeight:"100vh",background:"#0d1b2a",display:"flex",alignItems:"center",justifyContent:"center"}}>
       <div style={{background:"#1a2f45",borderRadius:12,padding:"40px 36px",minWidth:320,boxShadow:"0 8px 32px rgba(0,0,0,0.4)",textAlign:"center"}}>
         <div style={{fontSize:22,fontWeight:700,color:"#7ec8e3",marginBottom:8,letterSpacing:1}}>BOXTIME</div>
@@ -539,6 +538,7 @@ export default function App() {
   const q = quizBank[qIdx];
 
   return (
+    <PasswordGate>
     <div style={{minHeight:"100vh",background:"#050810",fontFamily:"'Georgia',serif",color:"#e6edf3"}}>
       {/* Header */}
       <div style={{background:"linear-gradient(135deg,#060d1c,#09152a,#060d1c)",borderBottom:"1px solid #121e30",padding:"14px 20px 0"}}>
