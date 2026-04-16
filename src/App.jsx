@@ -346,9 +346,9 @@ function TopicSynthesis({ topic, topicResults }) {
 
 
 function PasswordGate({children}) {
-  const [unlocked, setUnlocked] = React.useState(()=>sessionStorage.getItem("charter_auth")==="1");
-  const [pw, setPw] = React.useState("");
-  const [err, setErr] = React.useState(false);
+  const [unlocked, setUnlocked] = useState(()=>sessionStorage.getItem("charter_auth")==="1");
+  const [pw, setPw] = useState("");
+  const [err, setErr] = useState(false);
   if (unlocked) return children;
   return (
     <div style={{minHeight:"100vh",background:"#0d1b2a",display:"flex",alignItems:"center",justifyContent:"center"}}>
