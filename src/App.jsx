@@ -323,7 +323,7 @@ function TopicSynthesis({ topic, topicResults }) {
       const apiKey2 = import.meta.env.VITE_GEMINI_API_KEY;
                     const synthPrompt = `You are an expert in BIMCO BOXTIME container ship time charters. Please respond in Traditional Chinese (繁體中文).\n\nSynthesise how the following clauses interact on the topic of "${t?.label}":\n\nBOXTIME main form: ${bt||"none"}\nRider Clauses (which prevail): ${rd||"none"}\n\nExplain: 1) How Rider clauses modify or supplement the main form 2) How to apply them together in practice 3) Key negotiation points and common disputes`;
                     const r = await fetch(
-                      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite flash:generateContent?key=${apiKey2}`,
+                      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite flash:generateContent?key=${apiKey2}`,
                       { method:"POST", headers:{"Content-Type":"application/json"},
                         body:JSON.stringify({ contents:[{role:"user",parts:[{text:synthPrompt}]}] }) }
                     );
