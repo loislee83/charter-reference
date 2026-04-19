@@ -499,8 +499,6 @@ export default function App() {
 
 
   function ClauseCard({c}) {
-   }
-
     const isBT = c.src==="BT";
     const isCustom = c.custom;
     const isOpen = openId===c.no;
