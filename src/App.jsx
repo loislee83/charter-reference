@@ -81,7 +81,7 @@ const BOXTIME = [
 
   { no:"BT-21", label:"Cl.21", title:"Commission", topic:["legal"],
     en:"The Owners shall pay a commission at the rate stated in Box 35 to the party mentioned in Box 35 on any hire paid under this Charter Party but in no case less than is necessary to cover the actual expenses of the Brokers. If the full hire is not paid owing to breach of Charter Party by either of the parties the party liable therefore shall indemnify the Brokers against their loss of commission.\nShould the parties agree to cancel this Charter Party, the Owners shall indemnify the Brokers against any loss of commission but in such case the commission shall not exceed the brokerage on one year’s hire.",
-    zh:"【通知義務】對船東的通知送至Part I所示地址；對租家的通知送至Box 4所示地址。", owner:["Pay brokerage commission per Box 35"], charterer:[] },
+    zh:"【通知義務】對船東的通知送至Part I所示地址（V.Ships Hamburg，透過Blue Net Chartering）；對租家的通知送至Box 4所示地址。", owner:["Pay brokerage commission per Box 35"], charterer:[] },
 
   { no:"BT-22", label:"Cl.22", title:"Notices", topic:["legal"],
     en:"Any notice to the Owners shall be sent to………………………………………………\nAny notice to the Charterers shall be sent to the address as indicated in Box 4.",
@@ -566,8 +566,196 @@ export default function App() {
           </div>
           <div style={{display:"flex",gap:1}}>
             {[["search","Search"],["topic","Topics"],["quiz","Quiz"],["manage","+ Add Clause"]].map(([k,l])=>(
-              <button key={k} onClick={()=>{setMode(k);setQuery("");setTopic(null);setOpenId(null);setUpdateMode(false);}} style={{padding:"7px 14px",background:mode===k?"rgba(26,107,154,0.2)":"transparent",color:mode===k?"#58a6ff":"#3a5a70",border:"none",borderBottom:mode===k?"2px solid #1a6b9a":"2px solid transparent",cursor:"pointer",fontSize:12,fontFamily:"sans-serif",fontWeight:mode===k?600:400,transition:"all 0.2s"}}>{l}</button>
+              <button key={k} onClick={()=>{setMode(k);setQuery("");setTopic(null);setOpenId(null);}} style={{padding:"7px 14px",background:mode===k?"rgba(26,107,154,0.2)":"transparent",color:mode===k?"#58a6ff":"#3a5a70",border:"none",borderBottom:mode===k?"2px solid #1a6b9a":"2px solid transparent",cursor:"pointer",fontSize:12,fontFamily:"sans-serif",fontWeight:mode===k?600:400,transition:"all 0.2s"}}>{l}</button>
             ))}
           </div>
         </div>
       </div>
+
+      <div style={{maxWidth:900,margin:"0 auto",padding:"14px 20px"}}>
+
+        {/* ── SEARCH ── */}
+        {mode==="search"&&(
+          <div>
+            <div style={{position:"relative",marginBottom:6}}>
+              <input value={query} onChange={e=>{setQuery(e.target.value);setOpenId(null);}}
+                placeholder="Search clauses, topics, keywords..."
+                style={{width:"100%",padding:"10px 40px 10px 14px",background:"#090d14",border:"1px solid #1a3050",borderRadius:8,color:"#c8dce8",fontSize:13,fontFamily:"sans-serif",outline:"none",boxSizing:"border-box"}}/>
+              {query&&<button onClick={()=>{setQuery("");setOpenId(null);}} style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",background:"none",border:"none",color:"#3a5a70",cursor:"pointer",fontSize:16}}>✕</button>}
+            </div>
+            {query.length>0&&(
+              <div style={{fontSize:11,color:"#2a4a60",fontFamily:"sans-serif",marginBottom:8}}>
+                {(()=>{
+                  const bt=BOXTIME.filter(c=>scoreMatch(c,query)>0).length;
+                  const rd=RIDERS.filter(c=>scoreMatch(c,query)>0).length;
+                  const cu=customRiders.filter(c=>scoreMatch(c,query)>0).length;
+                  return `BOXTIME ${bt} · Rider ${rd}${cu>0?" · Custom "+cu:""}`;
+                })()}
+              </div>
+            )}
+            {query.length===0&&(
+              <div style={{color:"#1a3050",fontSize:12,fontFamily:"sans-serif",marginTop:8}}>
+                <div style={{fontWeight:600,marginBottom:6,color:"#2a4a60"}}>📋 Quick Reference</div>
+                <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
+                  {["delivery","hire","off hire","lashing","bunker","redelivery","war","arbitration","cargo","survey"].map(t=>(
+                    <button key={t} onClick={()=>setQuery(t)} style={{padding:"4px 10px",background:"#090d14",border:"1px solid #1a3050",borderRadius:12,color:"#3a6a80",fontSize:11,fontFamily:"sans-serif",cursor:"pointer"}}>{t}</button>
+                  ))}
+                </div>
+              </div>
+            )}
+            {query.length>1&&[
+              ...BOXTIME.filter(c=>scoreMatch(c,query)>0).sort((a,b)=>scoreMatch(b,query)-scoreMatch(a,query)).map(c=>({...c,src:"BT"})),
+              ...RIDERS.filter(c=>scoreMatch(c,query)>0).sort((a,b)=>scoreMatch(b,query)-scoreMatch(a,query)).map(c=>({...c,src:"RD"})),
+              ...customRiders.filter(c=>scoreMatch(c,query)>0).map(c=>({...c,src:"CU"})),
+            ].map(c=><ClauseCard key={c.no} c={c}/>)}
+          </div>
+        )}
+
+        {/* ── TOPICS ── */}
+        {mode==="topic"&&(
+          <div>
+            {!topic?(
+              <div>
+                <div style={{fontSize:12,color:"#2a4a60",fontFamily:"sans-serif",marginBottom:12}}>Browse clauses by topic:</div>
+                <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(200px,1fr))",gap:8}}>
+                  {TOPICS.map(t=>(
+                    <button key={t.id} onClick={()=>setTopic(t.id)}
+                      style={{padding:"12px 14px",background:"#090d14",border:"1px solid #1a3050",borderRadius:8,color:"#c8dce8",textAlign:"left",cursor:"pointer",fontFamily:"sans-serif"}}>
+                      <div style={{fontSize:16,marginBottom:4}}>{t.icon}</div>
+                      <div style={{fontSize:13,fontWeight:600,color:"#58a6ff"}}>{t.label}</div>
+                      <div style={{fontSize:11,color:"#3a5a70",marginTop:2}}>{t.desc}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ):(()=>{
+              const topicResults=[
+                ...BOXTIME.filter(c=>!c.deleted&&c.topic.includes(topic)).map(c=>({...c,src:"BT"})),
+                ...RIDERS.filter(c=>!c.deleted&&c.topic.includes(topic)).map(c=>({...c,src:"RD"})),
+              ];
+              const t=TOPICS.find(x=>x.id===topic);
+              return (
+                <div>
+                  <button onClick={()=>setTopic(null)} style={{marginBottom:12,background:"none",border:"none",color:"#3a6a80",cursor:"pointer",fontFamily:"sans-serif",fontSize:12}}>← Back to Topics</button>
+                  <div style={{marginBottom:12}}>
+                    <span style={{fontSize:20}}>{t?.icon}</span>
+                    <span style={{fontSize:15,fontWeight:700,color:"#58a6ff",marginLeft:8}}>{t?.label}</span>
+                    <span style={{fontSize:11,color:"#2a4a60",fontFamily:"sans-serif",marginLeft:10}}>BOXTIME {topicResults.filter(c=>c.src==="BT").length} · Rider {topicResults.filter(c=>c.src==="RD").length}</span>
+                  </div>
+                  {topicResults.map(c=><ClauseCard key={c.no} c={c}/>)}
+                </div>
+              );
+            })()}
+          </div>
+        )}
+
+        {/* ── QUIZ ── */}
+        {mode==="quiz"&&(
+          <div>
+            {!quizBank?(
+              <div style={{textAlign:"center",paddingTop:30}}>
+                <div style={{fontSize:20,marginBottom:16}}>📝 Charter Party Quiz</div>
+                <div style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap"}}>
+                  <button onClick={()=>startQuiz("bt")} style={{padding:"14px 28px",background:"linear-gradient(135deg,#0e2a42,#1a4a6a)",border:"1px solid #1a6b9a",borderRadius:10,color:"#58a6ff",fontSize:14,fontWeight:600,cursor:"pointer",fontFamily:"sans-serif"}}>
+                    <div style={{fontSize:24,marginBottom:6}}>📋</div>
+                    BOXTIME Part II
+                    <div style={{fontSize:11,color:"#3a6a80",marginTop:4}}>{BT_QUIZ.length} questions</div>
+                  </button>
+                  <button onClick={()=>startQuiz("rd")} style={{padding:"14px 28px",background:"linear-gradient(135deg,#1a0545,#2d0d6b)",border:"1px solid #7c3aed",borderRadius:10,color:"#c4b5fd",fontSize:14,fontWeight:600,cursor:"pointer",fontFamily:"sans-serif"}}>
+                    <div style={{fontSize:24,marginBottom:6}}>📑</div>
+                    Rider Clauses
+                    <div style={{fontSize:11,color:"#5a3a90",marginTop:4}}>{RD_QUIZ.length} questions</div>
+                  </button>
+                </div>
+              </div>
+            ):qDone?(
+              <div style={{textAlign:"center",paddingTop:30}}>
+                <div style={{fontSize:32,marginBottom:8}}>🎉</div>
+                <div style={{fontSize:20,fontWeight:700,color:"#58a6ff",marginBottom:8}}>Quiz Complete!</div>
+                <div style={{fontSize:15,color:"#c8dce8",marginBottom:20}}>{qScore} / {quizBank.length} correct</div>
+                <div style={{display:"flex",gap:10,justifyContent:"center"}}>
+                  <button onClick={()=>startQuiz(quizType)} style={{padding:"10px 22px",background:"#1a4a6a",border:"1px solid #1a6b9a",borderRadius:8,color:"#58a6ff",cursor:"pointer",fontFamily:"sans-serif",fontSize:13}}>Retry</button>
+                  <button onClick={resetQuiz} style={{padding:"10px 22px",background:"#090d14",border:"1px solid #1a3050",borderRadius:8,color:"#3a6a80",cursor:"pointer",fontFamily:"sans-serif",fontSize:13}}>Back to Menu</button>
+                </div>
+              </div>
+            ):(
+              <div>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
+                  <div style={{fontSize:12,color:"#2a4a60",fontFamily:"sans-serif"}}>{quizType==="bt"?"BOXTIME Charter Party Reference":"Rider Clauses"}</div>
+                  <div style={{fontSize:12,color:"#3a6a80",fontFamily:"sans-serif"}}>{qIdx+1} / {quizBank.length} · Score: {qScore}</div>
+                </div>
+                <div style={{background:"#090d14",border:"1px solid #1a3050",borderRadius:10,padding:"18px 20px",marginBottom:14}}>
+                  <div style={{fontSize:14,color:"#c8dce8",lineHeight:1.6,fontFamily:"sans-serif",marginBottom:16}}>{q.q}</div>
+                  <div style={{display:"flex",flexDirection:"column",gap:8}}>
+                    {q.opts.map((opt,i)=>{
+                      const chosen=qAns!==null;
+                      const correct=i===q.ans;
+                      const picked=i===qAns;
+                      return (
+                        <button key={i} onClick={()=>{if(qAns===null){setQAns(i);if(i===q.ans)setQScore(s=>s+1);}}}
+                          style={{padding:"10px 14px",background:chosen?(correct?"#0a2518":picked?"#2a0a0a":"#090d14"):"#0d1520",
+                            border:`1px solid ${chosen?(correct?"#16a34a":picked?"#dc2626":"#1a3050"):"#1a3050"}`,
+                            borderRadius:8,color:chosen?(correct?"#4ade80":picked?"#f87171":"#3a5a70"):"#8ab0c8",
+                            textAlign:"left",cursor:chosen?"default":"pointer",fontFamily:"sans-serif",fontSize:13,transition:"all 0.2s"}}>
+                          {String.fromCharCode(65+i)}. {opt}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {qAns!==null&&(
+                    <div style={{marginTop:14,padding:"10px 14px",background:"#060a10",borderRadius:8,border:"1px solid #1a3050"}}>
+                      <div style={{fontSize:12,color:qAns===q.ans?"#4ade80":"#f87171",fontFamily:"sans-serif",fontWeight:600,marginBottom:4}}>
+                        {qAns===q.ans?"✓ Correct!":"✗ Incorrect"}
+                      </div>
+                      <div style={{fontSize:12,color:"#5a7a90",fontFamily:"sans-serif",lineHeight:1.5}}>{q.exp}</div>
+                    </div>
+                  )}
+                </div>
+                {qAns!==null&&(
+                  <div style={{display:"flex",justifyContent:"flex-end"}}>
+                    <button onClick={()=>{if(qIdx+1>=quizBank.length){setQDone(true);}else{setQIdx(i=>i+1);setQAns(null);}}}
+                      style={{padding:"9px 22px",background:"#1a4a6a",border:"1px solid #1a6b9a",borderRadius:8,color:"#58a6ff",cursor:"pointer",fontFamily:"sans-serif",fontSize:13}}>
+                      {qIdx+1>=quizBank.length?"See Results →":"Next →"}
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── ADD CLAUSE ── */}
+        {mode==="manage"&&(
+          <div>
+            <div style={{fontSize:13,fontWeight:600,color:"#4ade80",fontFamily:"sans-serif",marginBottom:12}}>📄 BOXTIME Charter Party Reference</div>
+            <div style={{fontSize:12,color:"#2a4a60",fontFamily:"sans-serif",marginBottom:14}}>Add your own custom rider clauses for quick reference.</div>
+            <div style={{background:"#090d14",border:"1px solid #1a3050",borderRadius:10,padding:"16px"}}>
+              <div style={{display:"grid",gap:10,marginBottom:12}}>
+                <input value={newLabel} onChange={e=>setNewLabel(e.target.value)} placeholder="Clause label (e.g. R-100)"
+                  style={{padding:"9px 12px",background:"#060a10",border:"1px solid #1a3050",borderRadius:7,color:"#c8dce8",fontSize:13,fontFamily:"sans-serif",outline:"none"}}/>
+                <input value={newTitle} onChange={e=>setNewTitle(e.target.value)} placeholder="Clause title"
+                  style={{padding:"9px 12px",background:"#060a10",border:"1px solid #1a3050",borderRadius:7,color:"#c8dce8",fontSize:13,fontFamily:"sans-serif",outline:"none"}}/>
+                <textarea value={newEn} onChange={e=>setNewEn(e.target.value)} placeholder="English clause text" rows={4}
+                  style={{padding:"9px 12px",background:"#060a10",border:"1px solid #1a3050",borderRadius:7,color:"#c8dce8",fontSize:12,fontFamily:"sans-serif",outline:"none",resize:"vertical"}}/>
+                <textarea value={newZh} onChange={e=>setNewZh(e.target.value)} placeholder="中文說明（選填）" rows={3}
+                  style={{padding:"9px 12px",background:"#060a10",border:"1px solid #1a3050",borderRadius:7,color:"#c8dce8",fontSize:12,fontFamily:"sans-serif",outline:"none",resize:"vertical"}}/>
+              </div>
+              <button onClick={addCustomClause}
+                style={{padding:"9px 20px",background:"linear-gradient(135deg,#0a2518,#0e3a24)",border:"1px solid #16a34a",borderRadius:8,color:"#4ade80",cursor:"pointer",fontFamily:"sans-serif",fontSize:13,fontWeight:600}}>
+                + Add Clause
+              </button>
+            </div>
+            {customRiders.length>0&&(
+              <div style={{marginTop:16}}>
+                <div style={{fontSize:12,color:"#2a4a60",fontFamily:"sans-serif",marginBottom:8}}>Custom Clauses ({customRiders.length})</div>
+                {customRiders.map(c=><ClauseCard key={c.no} c={{...c,src:"CU"}}/>)}
+              </div>
+            )}
+            {customRiders.length===0&&<div style={{color:"#2a4060",fontSize:12,fontFamily:"sans-serif"}}>No custom clauses added yet.</div>}
+          </div>
+        )}
+      </div>
+    </div>
+    </PasswordGate>
+  );
+}
