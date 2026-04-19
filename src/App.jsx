@@ -81,7 +81,7 @@ const BOXTIME = [
 
   { no:"BT-21", label:"Cl.21", title:"Commission", topic:["legal"],
     en:"The Owners shall pay a commission at the rate stated in Box 35 to the party mentioned in Box 35 on any hire paid under this Charter Party but in no case less than is necessary to cover the actual expenses of the Brokers. If the full hire is not paid owing to breach of Charter Party by either of the parties the party liable therefore shall indemnify the Brokers against their loss of commission.\nShould the parties agree to cancel this Charter Party, the Owners shall indemnify the Brokers against any loss of commission but in such case the commission shall not exceed the brokerage on one year’s hire.",
-    zh:"【通知義務】對船東的通知送至Part I所示地址（V.Ships Hamburg，透過Blue Net Chartering）；對租家的通知送至Box 4所示地址。", owner:["Pay brokerage commission per Box 35"], charterer:[] },
+    zh:"【通知義務】對船東的通知送至Part I所示地址；對租家的通知送至Box 4所示地址。", owner:["Pay brokerage commission per Box 35"], charterer:[] },
 
   { no:"BT-22", label:"Cl.22", title:"Notices", topic:["legal"],
     en:"Any notice to the Owners shall be sent to………………………………………………\nAny notice to the Charterers shall be sent to the address as indicated in Box 4.",
@@ -208,6 +208,46 @@ const BT_QUIZ = [
 
   // Cl.20 – Law and Arbitration (1 question)
   { q:"Cl.20: Box 34 in Part I is left blank. Which arbitration option automatically applies?", opts:["New York arbitration under SMA rules","London arbitration under English law (sub-clause (a))","The parties must agree by separate agreement before any arbitration","ICC arbitration in Paris"], ans:1, exp:"Cl.20: sub-clauses (a) London, (b) New York and (c) Alternative are alternatives; indicate the alternative agreed in Box 34. If Box 34 is not filled in, sub-clause (a) shall apply — meaning English law governs and disputes are referred to London arbitration." },
+
+  // Cl.2 – Owners' Undertaking
+  { q:"Cl.2: At the time of delivery, the vessel must conform to the description set out in which parts of the Charter Party?", opts:["Parts I and III","Part I only","Parts I, II and III","Part II only"], ans:0, exp:"Cl.2: The Owners undertake that at delivery, the Vessel shall be of the description set out in Parts I and III hereof." },
+  { q:"Cl.2: Owners' undertaking regarding the vessel's condition applies at which point in time?", opts:["Throughout the charter period","At the time of delivery only","At delivery and redelivery","At the time of signing"], ans:1, exp:"Cl.2: The Owners undertake that AT DELIVERY, the Vessel shall be of the description set out in Parts I and III hereof." },
+
+  // Cl.3 – Trading Limits
+  { q:"Cl.3: The vessel is employed within the IWL trading limits. What obligation does the vessel NOT have under this clause?", opts:["Carry lawful goods","Call only at safe ports","Force ice or follow icebreakers","Trade within Box 22 limits"], ans:2, exp:"Cl.3: The Vessel shall NOT be obliged to force ice nor to follow icebreakers." },
+  { q:"Cl.3: Owners warrant that at the time of signing, the vessel has not traded to countries that would make her unacceptable at ports within the Trading Limits. Who provides the list of such countries?", opts:["Owners","Charterers","Flag state authorities","Classification Society"], ans:1, exp:"Cl.3: The Charterers shall provide a list of such countries. See Clause 34." },
+
+  // Cl.4 – Permitted Cargoes
+  { q:"Cl.4: Charterers wish to load live animals. Whose consent is required?", opts:["Owners only","Master only","Both Owners and Master","Flag state authority"], ans:2, exp:"Cl.4(c): Live Animals may be carried only with the prior consent of the Owners AND the Master." },
+  { q:"Cl.4: Radioactive isotopes may be carried provided they do not invalidate which specific insurance?", opts:["Hull and Machinery insurance","War Risks insurance","P&I cover","Cargo insurance"], ans:2, exp:"Cl.4(d): Radioactive isotopes may be carried only if they are of such a category as not to invalidate the Vessel's P&I cover." },
+
+  // Cl.5 – Owners' Obligations
+  { q:"Cl.5: Fumigation certificates are required at the commencement of the Charter Party. Who pays if fumigation is required due to Charterers' cargo?", opts:["Owners","Charterers","Split equally","The port authority"], ans:1, exp:"Cl.5(e): Fumigation required due to Charterers' cargo — costs are for Charterers." },
+  { q:"Cl.5: The crew assists with opening and closing hatches. What type of hatches are EXCLUDED from this obligation?", opts:["Weather deck hatches","Engine room hatches","Pontoon type hatches","Hatch covers below deck"], ans:2, exp:"Cl.5(b)(ii): Opening and closing any hatches OTHER THAN pontoon type hatches." },
+
+  // Cl.6 – Charterers' Obligations
+  { q:"Cl.6(l): Stevedore damage affecting the vessel's seaworthiness must be repaired in whose time?", opts:["Owners' time","Charterers' time","Equally shared time","Drydock time only"], ans:1, exp:"Cl.6(l): Damage affecting seaworthiness shall be repaired without delay in the CHARTERERS' time and paid for by the Charterers." },
+  { q:"Cl.6(m): Charterers are required to give how many days' final notice of redelivery?", opts:["7/5/3 days","5/3/1 days","10/7/3 days","3/2/1 days"], ans:1, exp:"Cl.6(m): Charterers to give 5/3/1 days' notice of redelivery." },
+  { q:"Cl.6(o): Charterers' local agents make cash advances to the Master subject to what commission rate?", opts:["1.25%","2.5%","5%","No commission"], ans:1, exp:"Cl.6(o): Funds available to the Master for disbursements subject to 2.5% commission." },
+
+  // Cl.7 – Hire
+  { q:"Cl.7(b): If hire is not paid on time, at what daily interest rate must Charterers pay on the outstanding amount?", opts:["0.05% per day","0.1% per day","0.5% per day","LIBOR + 2%"], ans:1, exp:"Cl.7(b): The Charterers shall pay interest at the rate of 0.1 per cent per day on the amount outstanding." },
+
+  // Cl.13 – Charterers' Requirements
+  { q:"Cl.13(b): Charterers paint the funnel in their colours during the charter. Who pays for restoring the vessel to its original condition before redelivery?", opts:["Owners","Charterers","Split equally","Whoever initiated the change"], ans:1, exp:"Cl.13(b): Alterations shall be effected during the Charterers' time and at the Charterers' expense, and the vessel shall be returned at Charterers' expense before redelivery." },
+  { q:"Cl.13(c): Owners warrant that the vessel can operate in ballast using what types of ballast only?", opts:["Solid ballast and water ballast","Fuel ballast and water ballast","Fuel and water ballast only","Water ballast only"], ans:2, exp:"Cl.13(c): Owners warrant the Vessel is capable of operating in ballast without requiring any solid ballast, using fuel and water ballast only." },
+  { q:"Cl.13(k): Charterers wish to sub-let the vessel. Whose prior consent is needed, and can it be unreasonably withheld?", opts:["Owners' consent, and it may be unreasonably withheld","Owners' consent, but shall not be unreasonably withheld","Master's consent only","No consent needed"], ans:1, exp:"Cl.13(k): Sub-letting requires the prior consent of the Owners, which shall NOT be unreasonably withheld." },
+
+  // Cl.14 – Owners' Requirements
+  { q:"Cl.14(c): General Average shall not be declared when the estimated amount does not exceed what threshold?", opts:["USD 500,000","USD 1,000,000","USD 2,000,000","USD 250,000"], ans:1, exp:"Cl.14(c): The Owners shall not declare General Average when the amount is estimated not to exceed USD 1,000,000." },
+  { q:"Cl.14(d): All salvage proceeds from derelicts are divided between Owners and Charterers. What is first deducted before the split?", opts:["Legal costs","Port disbursements","Master's, Officers' and crew's share","The cost of towage"], ans:2, exp:"Cl.14(d): All salvage and proceeds from derelicts shall be divided equally after deducting the Master's, Officers' and crew's share." },
+
+  // Cl.15 – Sundry Matters
+  { q:"Cl.15(c): A stowaway is found on board. Who bears the costs if it is established the stowaway hid inside Charterers' containers prior to loading?", opts:["Owners","Charterers","Split equally","Port authority"], ans:1, exp:"Cl.15(c): If the stowaway gained access by secreting away in Charterers' goods/containers prior to loading, all costs are for the CHARTERERS' account." },
+  { q:"Cl.15(d): On/off hire survey expenses are how shared between Owners and Charterers?", opts:["Owners pay all","Charterers pay all","Equally shared","Paid by whoever requests the survey"], ans:2, exp:"Cl.15(d): Surveying expense to be equally shared by Owners and Charterers." },
+
+  // Cl.21 – Commission
+  { q:"Cl.21: If the full hire is not paid due to a breach of Charter Party, who must indemnify the brokers for their lost commission?", opts:["Always the Owners","Always the Charterers","The party liable for the breach","Both parties equally"], ans:2, exp:"Cl.21: If the full hire is not paid owing to breach, the PARTY LIABLE THEREFOR shall indemnify the Brokers against their loss of commission." },
 ];
 
 const RD_QUIZ = [
@@ -265,6 +305,61 @@ const RD_QUIZ = [
 
   // Cl.86 – Bunker Quality (1 question)
   { q:"Rider Cl.86: How long must bunker samples be retained on board after delivery, and what happens if there is a quality dispute?", opts:["30 days; dispute resolved by Master's log","90 days (or longer if dispute active); dispute resolved by analysis by a mutually agreed analyst whose findings are conclusive","60 days; dispute referred to P&I Club","Until redelivery; resolved by London arbitration"], ans:1, exp:"Rider Cl.86: bunker samples must be retained for 90 days after delivery (extended if a dispute is already in progress). Any dispute about whether fuel meets agreed specifications is settled by analysis by a mutually agreed fuels analyst, whose findings are conclusive evidence." },
+
+  // Cl.23 – Vessel Description / Speed & Consumption
+  { q:"Rider Cl.23: The vessel fails to maintain the warranted speed due to heavy weather. Under what condition is the speed warranty suspended?", opts:["When wind exceeds Beaufort Scale 3","When wind exceeds Beaufort Scale 4","When wind exceeds Beaufort Scale 5","The warranty is never suspended"], ans:2, exp:"Rider Cl.23: The speed warranty applies in good weather, typically defined as winds not exceeding Beaufort Scale 4 or 5 (as specified). In heavier conditions the warranty is suspended." },
+  { q:"Rider Cl.23: The vessel's actual fuel consumption exceeds the warranted amount. Who bears the cost of the excess bunkers consumed?", opts:["Charterers","Owners","Split equally","The bunker supplier"], ans:1, exp:"Rider Cl.23: If consumption exceeds the warranty, the cost of excess fuel is for the OWNERS' account — they must compensate Charterers for the extra bunkers used." },
+
+  // Cl.27 – Watchmen
+  { q:"Rider Cl.27: Compulsory shore gangway watchmen are required in port. How is the cost shared?", opts:["Owners pay 100%","Charterers pay 100%","Split equally 50/50","Split based on time on/off hire"], ans:2, exp:"Rider Cl.27 (and Cl.15(b)): The cost of compulsory shore gangway watchmen shall be borne equally between the Owners and the Charterers." },
+
+  // Cl.29 – Victualling
+  { q:"Rider Cl.29: Charterers request that their port captain be victualled on board. The rate per meal is stated in Box 29. Who pays?", opts:["Owners","Charterers","Split equally","The port captain personally"], ans:1, exp:"Rider Cl.29 / Cl.13(i): When requested and authorized, the Owners shall victual Charterers' officials at the rate per person per meal as indicated in Box 29 — at CHARTERERS' expense." },
+
+  // Cl.36 – Cancelling
+  { q:"Rider Cl.36: Owners give advance notice that the vessel will not be ready by the cancelling date. Within how many hours must Charterers declare whether they cancel or accept delivery?", opts:["24 hours","48 hours","72 hours","96 hours"], ans:1, exp:"Rider Cl.36 / Cl.1(b): If Owners give notice before the cancelling date, Charterers shall declare within 48 HOURS whether they cancel or will take delivery, without prejudice to their right to claim proved damages." },
+
+  // Cl.37 – Off Hire Bunkers
+  { q:"Rider Cl.37: The vessel goes off-hire for engine repairs. Who pays for bunkers consumed during the off-hire period?", opts:["Owners","Charterers","Split equally","Whoever caused the off-hire"], ans:0, exp:"Rider Cl.37: During off-hire periods, bunkers consumed are for the OWNERS' account, as the vessel is not performing services for the Charterers." },
+
+  // Cl.40 – Both-to-Blame Collision
+  { q:"Rider Cl.40: A collision occurs and the other vessel is partly at fault. Under the 'Both-to-Blame Collision' clause, what are Charterers obliged to do?", opts:["Sue the other vessel directly","Indemnify Owners against recoveries by the other vessel under cargo claims","Pay all collision costs","Do nothing — it is Owners' problem"], ans:1, exp:"Rider Cl.40 (Both-to-Blame): Charterers shall indemnify Owners against any sum they are required to pay to the other vessel's owners as a result of cargo claims recovered against the colliding vessel." },
+
+  // Cl.44 – Ice Clause
+  { q:"Rider Cl.44: The vessel is ordered to a port that subsequently becomes icebound. Who decides whether the vessel shall attempt to enter?", opts:["Charterers","The Master, at his absolute discretion","Owners","The port authority"], ans:1, exp:"Rider Cl.44: The Master shall have absolute discretion whether to attempt to enter, remain in, or proceed through ice-bound waters — the Master's decision prevails for safety." },
+
+  // Cl.45 – General Average
+  { q:"Rider Cl.45: General Average is to be adjusted at the place indicated in Box 33. According to which rules?", opts:["Hamburg Rules","York-Antwerp Rules 1974 or any amendment thereto","Hague-Visby Rules","Rotterdam Rules"], ans:1, exp:"Rider Cl.45 / Cl.14(c): General average shall be adjusted according to the York-Antwerp Rules 1974 or any amendment thereto." },
+
+  // Cl.50 – New Jason Clause
+  { q:"Rider Cl.50 (New Jason Clause): In the event of danger to the vessel, what does this clause allow Owners to do?", opts:["Abandon the cargo","Claim General Average contributions from cargo interests even if the danger arose from negligent navigation","Cancel the charter","Deviate without consent"], ans:1, exp:"Rider Cl.50: The New Jason Clause allows Owners to collect General Average contributions from cargo interests even when the casualty arose from navigational negligence — overriding the common law rule that denied GA in such cases." },
+
+  // Cl.51 – Himalaya Clause
+  { q:"Rider Cl.51 (Himalaya/Circular Indemnity Clause): What protection does this clause extend to the Owners?", opts:["Owners can limit cargo liability to USD 500 per package","Owners enjoy the same defences and immunities as apply under the bill of lading against third party claims","Owners are exempt from all cargo liability","Owners can reroute the vessel freely"], ans:1, exp:"Rider Cl.51 (Himalaya): This clause extends the benefit of the bill of lading terms, conditions, and limitations — including liability caps — to the Owners as against third party tortious claims." },
+
+  // Cl.52 – Sister Ship Salvage
+  { q:"Rider Cl.52 (Sister Ship Salvage Clause): A sister vessel owned by the same Owners saves this vessel. Can salvage be claimed?", opts:["No, same owner vessels cannot claim salvage from each other","Yes, this clause allows salvage claims between vessels under common ownership","Only if the master requests it","Only if cargo is involved"], ans:1, exp:"Rider Cl.52: The Sister Ship Salvage clause allows Owners to claim salvage remuneration even when the saving vessel and the vessel saved are under common ownership, as if they were owned by different parties." },
+
+  // Cl.53 – Lien Clause
+  { q:"Rider Cl.53: Owners have a lien on Charterers' goods and containers. What can Owners exercise this lien for?", opts:["Any debt owed by Charterers to any party","Unpaid charter hire, unreimbursed Owners' expenses paid on behalf of Charterers, and GA contributions","Damage caused by stevedores only","Fuel costs only"], ans:1, exp:"Rider Cl.53 / Cl.14(e): Owners have a lien on Charterers' goods, containers, and sub-freights/sub-hire for: unpaid charter hire, unreimbursed Charterers' expenses initially paid by Owners, and GA contributions properly due." },
+
+  // Cl.57 – Freight Tax
+  { q:"Rider Cl.57: A freight tax is levied on hire at the port of loading. Who is responsible for paying this tax?", opts:["Owners","Charterers","Split equally","The cargo shipper"], ans:1, exp:"Rider Cl.57: Any freight tax, income tax or similar tax levied on hire earned under this Charter Party is for the CHARTERERS' account unless it is a tax on Owners' income in Owners' country." },
+
+  // Cl.60 – Cargo Gear
+  { q:"Rider Cl.60: The vessel's crane breaks down during cargo operations at a port with no shore cranes available. What happens to hire?", opts:["Full hire continues","Hire is reduced pro rata based on hatches affected","Hire ceases completely","Hire is suspended for 24 hours only"], ans:1, exp:"Rider Cl.60 / Cl.11(b): If shore cranes are not available during stoppage of the vessel's gear, the vessel is pro-rata off hire — hire reduced in proportion to the number of hatches affected." },
+
+  // Cl.64 – Hazardous Goods
+  { q:"Rider Cl.64: Hazardous goods must be documented and handled according to which international regulations?", opts:["SOLAS only","IMO regulations and any mandatory local requirements and regulations of the flag state","MARPOL only","IMDG Code only"], ans:1, exp:"Rider Cl.64 / Cl.4(b): Hazardous goods must be loaded, stowed, discharged and documented in accordance with IMO regulations, any mandatory local requirements and regulations of the flag state." },
+
+  // Cl.68 – Speed and Performance
+  { q:"Rider Cl.68: The vessel consistently under-performs on speed. Charterers claim a hire deduction. What must Charterers prove to support their claim?", opts:["Only that the vessel was slow","Actual underperformance against the warranted speed and consumption, supported by voyage data","That the Master failed to give full orders","That the vessel is unclassed"], ans:1, exp:"Rider Cl.68: Charterers must demonstrate actual underperformance compared to the warranted speed/consumption figures, typically using noon reports and voyage data. The burden of proof lies with the claiming party." },
+
+  // Cl.74 – Piracy
+  { q:"Rider Cl.74: The vessel transits a piracy high-risk area and Owners incur additional war risk insurance premiums. Who pays?", opts:["Owners","Charterers","Split equally","The P&I Club"], ans:1, exp:"Rider Cl.74 / Cl.6(n) / Cl.19(b): Additional insurance premiums (including war risks and piracy zone premiums) incurred by Owners when Charterers order the vessel to such areas are reimbursed by CHARTERERS." },
+
+  // Cl.79 – Owners' Liability Cap
+  { q:"Rider Cl.79: Owners' liability to Charterers for cargo loss is limited by reference to what basis under Cl.17(c)?", opts:["USD 500 per package regardless","The same basis as applicable under mandatory law between Charterers and a third party under the bill of lading, or GBP 100 per package where no mandatory law applies","The vessel's insured value","The market value of the cargo"], ans:1, exp:"Rider Cl.79 / Cl.17(c)(i): Owners' liability for goods is on the same basis as applicable under mandatory law between Charterers and a third party under a bill of lading with no declared value. Where no mandatory law applies, liability is limited to GB Pounds 100 per package." },
 ];
 
 const TOPICS = [
@@ -310,39 +405,6 @@ function scoreMatch(item, q) {
 
 const STORAGE_KEY = "charter_custom_riders";
 
-function TopicSynthesis({ topic, topicResults }) {
-  const [synLoad, setSynLoad] = useState(false);
-  const [synText, setSynText] = useState("");
-
-  async function synthesise() {
-    const t = TOPICS.find(x=>x.id===topic);
-    const bt = topicResults.filter(c=>c.src==="BT").map(c=>`${c.label} ${c.title}`).join(", ");
-    const rd = topicResults.filter(c=>c.src==="RD").map(c=>`${c.label} ${c.title}`).join(", ");
-    setSynLoad(true); setSynText("");
-    try {
-      const apiKey2 = import.meta.env.VITE_GEMINI_API_KEY;
-                    const synthPrompt = `You are an expert in BIMCO BOXTIME container ship time charters. Please respond in Traditional Chinese (繁體中文).\n\nSynthesise how the following clauses interact on the topic of "${t?.label}":\n\nBOXTIME main form: ${bt||"none"}\nRider Clauses (which prevail): ${rd||"none"}\n\nExplain: 1) How Rider clauses modify or supplement the main form 2) How to apply them together in practice 3) Key negotiation points and common disputes`;
-                    const r = await fetch(
-                      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite flash:generateContent?key=${apiKey2}`,
-                      { method:"POST", headers:{"Content-Type":"application/json"},
-                        body:JSON.stringify({ contents:[{role:"user",parts:[{text:synthPrompt}]}] }) }
-                    );
-      const d = await r.json();
-      setSynText(d.content?.map(i=>i.text||"").join("\n")||"No response");
-    } catch { setSynText("Connection error. Please try again."); }
-    setSynLoad(false);
-  }
-
-  return (
-    <div style={{marginTop:16,background:"#090d14",border:"1px solid #182030",borderRadius:9,padding:"14px"}}>
-      <div style={{fontSize:12,color:"#3a6a80",fontFamily:"sans-serif",marginBottom:8}}>AI synthesis — how do BOXTIME and Rider clauses interact on this topic?</div>
-      <button onClick={synthesise} disabled={synLoad} style={{padding:"7px 16px",background:synLoad?"#101825":"#1a6b9a",color:"#fff",border:"none",borderRadius:6,cursor:synLoad?"wait":"pointer",fontSize:12,fontFamily:"sans-serif"}}>
-        {synLoad?"⏳ Analysing...":"Synthesise this topic →"}
-      </button>
-      {synText&&!synLoad&&<div style={{marginTop:10,background:"#050810",border:"1px solid #1a3050",borderRadius:7,padding:"13px",fontSize:13,lineHeight:1.85,color:"#c9d1d9",fontFamily:"sans-serif",whiteSpace:"pre-wrap"}}>{synText}</div>}
-    </div>
-  );
-}
 
 
 function PasswordGate({children}) {
@@ -388,9 +450,6 @@ export default function App() {
   const [qScore, setQScore]     = useState(0);
   const [qDone, setQDone]       = useState(false);
   // BIMCO update checker
-  const [updateMode, setUpdateMode] = useState(false);
-  const [updateText, setUpdateText] = useState("");
-  const [updateLoad, setUpdateLoad] = useState(false);
   // Custom clause adder
   const [showAdd, setShowAdd]   = useState(false);
   const [newLabel, setNewLabel] = useState("");
@@ -438,54 +497,9 @@ export default function App() {
     ...RIDERS.filter(c=>!c.deleted && c.topic.includes(topic)).map(c=>({...c,src:"RD"})),
   ] : [];
 
-  async function checkBIMCOUpdates() {
-    setUpdateLoad(true); setUpdateText("");
-    try {
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-      const r = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ contents: [{ role:"user", parts: [{ text: "Please list the latest BIMCO standard clause updates and new clauses released in 2023, 2024, and 2025 relevant to time charter parties for container ships. For each, provide: clause name, release date, what it covers, and why it was updated. Respond in Traditional Chinese (繁體中文)." }] }] })
-        }
-      );
-      const d = await r.json();
-      const text = d?.candidates?.[0]?.content?.parts?.[0]?.text || (d?.error ? "API Error: " + (d.error.message || JSON.stringify(d.error)) : "No results found.");
-      setUpdateText(text);
-    } catch { setUpdateText("Search failed. Please try again."); }
-    setUpdateLoad(false);
-  }
 
   function ClauseCard({c}) {
-    const [cardAiMode, setCardAiMode] = useState(null);
-    const [cardAiText, setCardAiText] = useState("");
-    const [cardAiLoad, setCardAiLoad] = useState(false);
-
-    async function askClause(am) {
-      setCardAiMode(am);
-      setCardAiText("");
-      const src = c.src==="BT"?"BOXTIME main form (Northern Diplomat)":c.custom?"Custom Rider Clause":"BOXTIME Rider Clause (Part 3)";
-      const prompts = {
-        explain:`You are a chartering expert with 20 years' experience in container ship time charters, expert in BIMCO BOXTIME and its Rider Clauses. Please respond in Traditional Chinese (繁體中文).\n\nExplain the following clause in depth:\n1) Core meaning and legal purpose\n2) Practical impact on Owners vs Charterers\n3) How it relates to other BOXTIME or Rider clauses\n4) Common disputes and key points to watch\n\nSource: ${src}\nClause: ${c.label} — ${c.title}\nFull text: ${c.en}`,
-        who:`You are an expert in BOXTIME container ship time charters. Please respond in Traditional Chinese (繁體中文).\n\nFor the following clause, provide a complete cost and liability allocation analysis:\n1) List each item and whether it falls to Owners or Charterers, with reasoning\n2) Typical negotiation disputes\n3) How each party can protect their position\n\nSource: ${src}\nClause: ${c.label} — ${c.title}\nFull text: ${c.en}`,
-        neg:`You are a negotiation expert representing Charterers in a BOXTIME time charter. Please respond in Traditional Chinese (繁體中文).\n\nFor the following clause, provide 3 specific negotiation modifications:\n1) Proposed wording change\n2) Benefit to Charterers\n3) Expected Owners' reaction and counter-proposal\n4) Suggested compromise position\n\nSource: ${src}\nClause: ${c.label} — ${c.title}\nFull text: ${c.en}`,
-      };
-      setCardAiLoad(true);
-      try {
-        const _gkey = import.meta.env.VITE_GEMINI_API_KEY;
-        const r = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${_gkey}`,
-          { method:"POST", headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({ contents:[{role:"user",parts:[{text:prompts[am]}]}] }) }
-        );
-        const d = await r.json();
-        if (d?.error) { setCardAiText("API Error: " + (d.error.message || JSON.stringify(d.error))); setCardAiLoad(false); return; }
-        const txt = d?.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
-        setCardAiText(txt);
-      } catch(e) { setCardAiText("Connection error: " + e.message); }
-      setCardAiLoad(false);
-    }
+   }
 
     const isBT = c.src==="BT";
     const isCustom = c.custom;
@@ -522,13 +536,6 @@ export default function App() {
                 {(c.charterer||[]).map((w,i)=><div key={"c"+i} style={{display:"flex",gap:8,fontSize:11,fontFamily:"sans-serif",background:"#050810",padding:"4px 8px",borderRadius:4,marginBottom:2}}><span style={{color:"#fb923c",fontWeight:700,minWidth:70,flexShrink:0}}>CHARTERERS</span><span style={{color:"#6a8a9e"}}>{w}</span></div>)}
               </div>
             )}
-            <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
-              {[["explain","📖 Explain"],["who","⚖ Who Pays"],["neg","🤝 Negotiate"]].map(([am,al])=>(
-                <button key={am} onClick={()=>askClause(am)} disabled={cardAiLoad} style={{padding:"5px 12px",borderRadius:5,background:cardAiMode===am&&!cardAiLoad?ac:"#101825",color:cardAiMode===am&&!cardAiLoad?"#fff":tx,border:`1px solid ${ac}66`,cursor:cardAiLoad?"wait":"pointer",fontSize:12,fontFamily:"sans-serif",transition:"all 0.2s"}}>{al}</button>
-              ))}
-            </div>
-            {cardAiLoad&&<div style={{color:"#58a6ff",fontSize:12,padding:"8px 0",fontFamily:"sans-serif"}}>⏳ Analysing...</div>}
-            {cardAiText&&!cardAiLoad&&<div style={{marginTop:8,background:"#050a10",border:`1px solid ${ac}33`,borderRadius:7,padding:"13px",fontSize:13,lineHeight:1.85,color:"#c9d1d9",fontFamily:"sans-serif",whiteSpace:"pre-wrap"}}>{cardAiText}</div>}
           </div>
         )}
       </div>
@@ -556,10 +563,6 @@ export default function App() {
                 </div>
               </div>
             </div>
-            {/* BIMCO Update button */}
-            <button onClick={()=>{setUpdateMode(!updateMode);setUpdateText("");}} style={{padding:"6px 12px",background:updateMode?"#1a6b9a":"#0c1520",border:"1px solid #1a3050",borderRadius:6,color:updateMode?"#fff":"#58a6ff",cursor:"pointer",fontSize:11,fontFamily:"sans-serif",whiteSpace:"nowrap"}}>
-              🔔 BIMCO Updates
-            </button>
           </div>
           <div style={{display:"flex",gap:1}}>
             {[["search","Search"],["topic","Topics"],["quiz","Quiz"],["manage","+ Add Clause"]].map(([k,l])=>(
@@ -568,226 +571,3 @@ export default function App() {
           </div>
         </div>
       </div>
-
-      {/* BIMCO Update Panel */}
-      {updateMode&&(
-        <div style={{background:"#07101c",borderBottom:"1px solid #1a3050",padding:"14px 20px"}}>
-          <div style={{maxWidth:900,margin:"0 auto"}}>
-            <div style={{fontSize:12,color:"#3a6a80",fontFamily:"sans-serif",marginBottom:10}}>
-              Search for the latest BIMCO standard clause updates and new releases relevant to time charter parties:
-            </div>
-            <button onClick={checkBIMCOUpdates} disabled={updateLoad} style={{padding:"8px 18px",background:updateLoad?"#101825":"#1a6b9a",color:"#fff",border:"none",borderRadius:6,cursor:updateLoad?"wait":"pointer",fontSize:12,fontFamily:"sans-serif",marginBottom:10}}>
-              {updateLoad?"⏳ Searching BIMCO...":"🔍 Check Latest BIMCO Clause Updates"}
-            </button>
-            {updateText&&(
-              <div style={{background:"#050810",border:"1px solid #1a3050",borderRadius:8,padding:"14px",fontSize:12,lineHeight:1.8,color:"#c9d1d9",fontFamily:"sans-serif",whiteSpace:"pre-wrap",maxHeight:300,overflowY:"auto"}}>{updateText}</div>
-            )}
-          </div>
-        </div>
-      )}
-
-      <div style={{maxWidth:900,margin:"0 auto",padding:"14px 20px"}}>
-
-        {/* ── SEARCH ── */}
-        {mode==="search"&&(
-          <div>
-            <div style={{position:"relative",marginBottom:6}}>
-              <input value={query} onChange={e=>{setQuery(e.target.value);setOpenId(null);}}
-                placeholder="Search clause number, keyword or topic — e.g. off-hire, reefer, stowaways, slow steaming, 24 hours..."
-                style={{width:"100%",boxSizing:"border-box",padding:"11px 15px 11px 42px",background:"#0c1520",border:"1px solid #1a2e44",borderRadius:9,color:"#c9d1d9",fontSize:13,fontFamily:"sans-serif",outline:"none"}}
-              />
-              <span style={{position:"absolute",left:13,top:"50%",transform:"translateY(-50%)",fontSize:16,opacity:0.35}}>🔍</span>
-            </div>
-            <div style={{display:"flex",gap:8,marginBottom:10,fontFamily:"sans-serif",fontSize:10,alignItems:"center"}}>
-              <span style={{background:"#0a2540",color:"#58a6ff",padding:"1px 7px",borderRadius:3,fontWeight:800}}>BOXTIME</span><span style={{color:"#2a4a60"}}>Main form</span>
-              <span style={{color:"#2a4a60",margin:"0 2px"}}>·</span>
-              <span style={{background:"#1a0545",color:"#c4b5fd",padding:"1px 7px",borderRadius:3,fontWeight:800}}>RIDER</span><span style={{color:"#2a4a60"}}>Part 3 (prevails over main form)</span>
-              {customRiders.length>0&&<><span style={{color:"#2a4a60",margin:"0 2px"}}>·</span><span style={{background:"#0a2018",color:"#4ade80",padding:"1px 7px",borderRadius:3,fontWeight:800}}>CUSTOM</span><span style={{color:"#2a4a60"}}>Added by you</span></>}
-            </div>
-            {query.trim().length===0&&(
-              <div>
-                <div style={{color:"#2a4a60",fontSize:11,fontFamily:"sans-serif",marginBottom:8}}>Quick search:</div>
-                <div style={{display:"flex",gap:6,flexWrap:"wrap",marginBottom:14}}>
-                  {["off-hire","bunker","reefer","stowaways","slow steaming","war risks","trading limits","bill of lading","delivery","redelivery","hire payment","24 hours","CONWARTIME","sulphur","lashing"].map(h=>(
-                    <button key={h} onClick={()=>setQuery(h)} style={{padding:"4px 10px",background:"#0c1520",border:"1px solid #1a2e44",borderRadius:14,color:"#58a6ff",fontSize:11,cursor:"pointer",fontFamily:"sans-serif"}}>{h}</button>
-                  ))}
-                </div>
-              </div>
-            )}
-            {query.trim().length>0&&searchResults.length===0&&<div style={{color:"#3a5a70",fontSize:13,fontFamily:"sans-serif",padding:"24px 0",textAlign:"center"}}>No matching clauses found.</div>}
-            {searchResults.length>0&&(
-              <div>
-                <div style={{color:"#2a4a60",fontSize:10,fontFamily:"sans-serif",marginBottom:8}}>{searchResults.filter(c=>c.src==="BT").length} BOXTIME + {searchResults.filter(c=>c.src==="RD").length} Rider clauses matched</div>
-                {searchResults.map(c=><ClauseCard key={c.no} c={c}/>)}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ── TOPICS ── */}
-        {mode==="topic"&&(
-          <div>
-            {!topic&&(
-              <div>
-                <div style={{color:"#2a4a60",fontSize:11,fontFamily:"sans-serif",marginBottom:10}}>Select a topic — all relevant BOXTIME and Rider clauses shown together:</div>
-                <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(190px,1fr))",gap:6}}>
-                  {TOPICS.map(t=>(
-                    <button key={t.id} onClick={()=>{setTopic(t.id);setOpenId(null);}} style={{padding:"10px 12px",background:"#090d14",border:"1px solid #182030",borderRadius:8,cursor:"pointer",textAlign:"left"}}>
-                      <div style={{fontSize:13,color:"#c0d0dc",fontFamily:"sans-serif",fontWeight:600,marginBottom:2}}>{t.label}</div>
-                      <div style={{fontSize:10,color:"#2a4a60",fontFamily:"sans-serif"}}>{t.desc}</div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-            {topic&&(
-              <div>
-                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
-                  <button onClick={()=>{setTopic(null);setOpenId(null);}} style={{padding:"4px 11px",background:"#090d14",border:"1px solid #182030",borderRadius:5,color:"#58a6ff",cursor:"pointer",fontSize:11,fontFamily:"sans-serif"}}>← Topics</button>
-                  <span style={{fontSize:14,color:"#c0d0dc",fontFamily:"sans-serif",fontWeight:600}}>{TOPICS.find(t=>t.id===topic)?.label}</span>
-                  <span style={{fontSize:10,color:"#2a4a60",fontFamily:"sans-serif"}}>BOXTIME {topicResults.filter(c=>c.src==="BT").length} · Rider {topicResults.filter(c=>c.src==="RD").length}</span>
-                </div>
-                <div style={{fontSize:10,color:"#2a4060",fontFamily:"sans-serif",marginBottom:10,padding:"6px 10px",background:"#07101c",borderRadius:5,border:"1px solid #1a2e44"}}>
-                  ℹ Rider clauses prevail over BOXTIME main form in case of conflict (BOXTIME Cl.22).
-                </div>
-                {topicResults.length===0&&<div style={{color:"#3a5a70",fontSize:13,fontFamily:"sans-serif"}}>No clauses for this topic.</div>}
-                {topicResults.map(c=><ClauseCard key={c.no} c={c}/>)}
-                <TopicSynthesis topic={topic} topicResults={topicResults} />
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ── QUIZ ── */}
-        {mode==="quiz"&&(
-          <div style={{maxWidth:660}}>
-            {!quizType&&(
-              <div>
-                <div style={{fontSize:14,color:"#c0d0dc",fontFamily:"sans-serif",fontWeight:600,marginBottom:6}}>Choose a quiz set:</div>
-                <div style={{fontSize:11,color:"#3a5a70",fontFamily:"sans-serif",marginBottom:16}}>Questions are randomised each time. BOXTIME and Rider quizzes are separate — Rider clauses prevail over BOXTIME, so each set tests a distinct layer of the contract.</div>
-                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-                  <button onClick={()=>startQuiz("bt")} style={{padding:"18px 16px",background:"#090d14",border:"2px solid #1a6b9a",borderRadius:10,cursor:"pointer",textAlign:"left"}}>
-                    <div style={{fontSize:14,color:"#58a6ff",fontFamily:"sans-serif",fontWeight:700,marginBottom:4}}>📄 BOXTIME Charter Party Reference</div>
-                    <div style={{fontSize:11,color:"#3a5a70",fontFamily:"sans-serif"}}>{BT_QUIZ.length} questions · Main form clauses Cl.1–22</div>
-                    <div style={{fontSize:10,color:"#2a4060",fontFamily:"sans-serif",marginTop:4}}>Randomised each attempt</div>
-                  </button>
-                  <button onClick={()=>startQuiz("rd")} style={{padding:"18px 16px",background:"#090d14",border:"2px solid #7c3aed",borderRadius:10,cursor:"pointer",textAlign:"left"}}>
-                    <div style={{fontSize:14,color:"#c4b5fd",fontFamily:"sans-serif",fontWeight:700,marginBottom:4}}>📎 Rider Clauses</div>
-                    <div style={{fontSize:11,color:"#3a5a70",fontFamily:"sans-serif"}}>{RD_QUIZ.length} questions · Part 3 Cl.23–99</div>
-                    <div style={{fontSize:10,color:"#2a4060",fontFamily:"sans-serif",marginTop:4}}>Randomised each attempt</div>
-                  </button>
-                </div>
-              </div>
-            )}
-            {quizType&&!qDone&&q&&(
-              <div>
-                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8,fontFamily:"sans-serif"}}>
-                  <div style={{display:"flex",gap:8,alignItems:"center"}}>
-                    <button onClick={resetQuiz} style={{fontSize:10,background:"transparent",border:"none",color:"#3a5a70",cursor:"pointer",fontFamily:"sans-serif"}}>← Back</button>
-                    <span style={{fontSize:11,background:quizType==="bt"?"#0a2540":"#1a0545",color:quizType==="bt"?"#58a6ff":"#c4b5fd",padding:"1px 7px",borderRadius:3,fontWeight:700,fontFamily:"sans-serif"}}>{quizType==="bt"?"BOXTIME":"RIDER"}</span>
-                  </div>
-                  <div style={{display:"flex",gap:12,fontFamily:"sans-serif"}}>
-                    <span style={{color:"#2a4a60",fontSize:11}}>Q {qIdx+1}/{quizBank.length}</span>
-                    <span style={{color:"#58a6ff",fontSize:11}}>Score {qScore}</span>
-                  </div>
-                </div>
-                <div style={{height:2,background:"#12202e",borderRadius:2,marginBottom:14}}>
-                  <div style={{height:"100%",borderRadius:2,background:quizType==="bt"?"#1a6b9a":"#7c3aed",width:`${(qIdx/quizBank.length)*100}%`,transition:"width 0.3s"}}/>
-                </div>
-                <div style={{background:"#090d14",border:"1px solid #182030",borderRadius:11,padding:"20px"}}>
-                  <div style={{fontSize:14,lineHeight:1.65,marginBottom:18,fontWeight:600,fontFamily:"sans-serif",color:"#d0dce8"}}>{q.q}</div>
-                  <div style={{display:"grid",gap:7}}>
-                    {q.opts.map((opt,i)=>{
-                      let bg="#050810",border="#182030",color="#b0c0cc";
-                      if(qAns!==null){
-                        if(i===q.ans){bg="#0a2018";border="#1a6a30";color="#4ade80";}
-                        else if(i===qAns){bg="#200a0a";border="#7a1a1a";color="#f87171";}
-                      }
-                      return <button key={i} onClick={()=>{if(qAns!==null)return;setQAns(i);if(i===q.ans)setQScore(s=>s+1);}} style={{padding:"10px 13px",background:bg,border:`1px solid ${border}`,borderRadius:7,color,cursor:qAns!==null?"default":"pointer",textAlign:"left",fontSize:12,fontFamily:"sans-serif",transition:"all 0.2s",lineHeight:1.5}}>
-                        <span style={{opacity:0.35,marginRight:8}}>{String.fromCharCode(65+i)}.</span>{opt}
-                      </button>
-                    })}
-                  </div>
-                  {qAns!==null&&(
-                    <>
-                      <div style={{marginTop:10,padding:"10px 12px",background:"#060c14",border:"1px solid #1a2e44",borderRadius:7,fontSize:12,color:"#7a9ab0",lineHeight:1.7,fontFamily:"sans-serif"}}>💡 {q.exp}</div>
-                      <button onClick={()=>{if(qIdx+1>=quizBank.length)setQDone(true);else{setQIdx(i=>i+1);setQAns(null);}}} style={{marginTop:10,padding:"7px 18px",background:quizType==="bt"?"#1a6b9a":"#7c3aed",color:"#fff",border:"none",borderRadius:7,cursor:"pointer",fontSize:12,fontFamily:"sans-serif"}}>
-                        {qIdx+1>=quizBank.length?"View Results":"Next →"}
-                      </button>
-                    </>
-                  )}
-                </div>
-              </div>
-            )}
-            {quizType&&qDone&&(
-              <div style={{textAlign:"center",padding:"48px 0"}}>
-                <div style={{fontSize:54,marginBottom:14}}>{qScore>=7?"🏆":qScore>=5?"👍":"📚"}</div>
-                <div style={{fontSize:12,fontFamily:"sans-serif",color:quizType==="bt"?"#58a6ff":"#c4b5fd",marginBottom:8}}>{quizType==="bt"?"BOXTIME Charter Party Reference":"Rider Clauses"}</div>
-                <div style={{fontSize:28,fontWeight:700,marginBottom:8}}>{qScore} / {quizBank.length}</div>
-                <div style={{color:"#3a6a80",fontFamily:"sans-serif",fontSize:14,marginBottom:20}}>
-                  {qScore>=7?"Excellent.":qScore>=5?"Good — review a few details.":"Recommend reviewing the clauses, then retry."}
-                </div>
-                <div style={{display:"flex",gap:10,justifyContent:"center"}}>
-                  <button onClick={()=>startQuiz(quizType)} style={{padding:"10px 20px",background:quizType==="bt"?"#1a6b9a":"#7c3aed",color:"#fff",border:"none",borderRadius:7,cursor:"pointer",fontSize:12,fontFamily:"sans-serif"}}>Retry same set</button>
-                  <button onClick={resetQuiz} style={{padding:"10px 20px",background:"#101825",color:"#58a6ff",border:"1px solid #1a3050",borderRadius:7,cursor:"pointer",fontSize:12,fontFamily:"sans-serif"}}>Choose different set</button>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* ── ADD CLAUSE ── */}
-        {mode==="manage"&&(
-          <div style={{maxWidth:680}}>
-            <div style={{fontSize:14,color:"#c0d0dc",fontFamily:"sans-serif",fontWeight:600,marginBottom:4}}>Add a Custom Clause</div>
-            <div style={{fontSize:11,color:"#3a5a70",fontFamily:"sans-serif",marginBottom:14}}>
-              Add new BIMCO standard clauses or your own clauses as they are released or updated. Custom clauses appear in search results and topic views alongside BOXTIME and Rider clauses.
-            </div>
-            <div style={{display:"grid",gap:10,marginBottom:14}}>
-              <div style={{display:"grid",gridTemplateColumns:"1fr 2fr",gap:10}}>
-                <div>
-                  <div style={{fontSize:10,color:"#3a5a70",fontFamily:"sans-serif",marginBottom:4}}>CLAUSE LABEL *</div>
-                  <input value={newLabel} onChange={e=>setNewLabel(e.target.value)} placeholder="e.g. BIMCO EUETS 2023" style={{width:"100%",boxSizing:"border-box",padding:"8px 10px",background:"#0c1520",border:"1px solid #1a2e44",borderRadius:6,color:"#c9d1d9",fontSize:12,fontFamily:"sans-serif",outline:"none"}}/>
-                </div>
-                <div>
-                  <div style={{fontSize:10,color:"#3a5a70",fontFamily:"sans-serif",marginBottom:4}}>TITLE *</div>
-                  <input value={newTitle} onChange={e=>setNewTitle(e.target.value)} placeholder="e.g. EU Emissions Trading System Clause for Time Charters" style={{width:"100%",boxSizing:"border-box",padding:"8px 10px",background:"#0c1520",border:"1px solid #1a2e44",borderRadius:6,color:"#c9d1d9",fontSize:12,fontFamily:"sans-serif",outline:"none"}}/>
-                </div>
-              </div>
-              <div>
-                <div style={{fontSize:10,color:"#3a5a70",fontFamily:"sans-serif",marginBottom:4}}>ENGLISH TEXT * (primary)</div>
-                <textarea value={newEn} onChange={e=>setNewEn(e.target.value)} placeholder="Paste the full English clause text here..." style={{width:"100%",boxSizing:"border-box",padding:"10px 12px",background:"#0c1520",border:"1px solid #1a2e44",borderRadius:6,color:"#c9d1d9",fontSize:12,fontFamily:"'Georgia',serif",outline:"none",resize:"vertical",minHeight:100,lineHeight:1.7}}/>
-              </div>
-              <div>
-                <div style={{fontSize:10,color:"#3a5a70",fontFamily:"sans-serif",marginBottom:4}}>中文說明 (optional)</div>
-                <textarea value={newZh} onChange={e=>setNewZh(e.target.value)} placeholder="選填：中文白話說明..." style={{width:"100%",boxSizing:"border-box",padding:"10px 12px",background:"#0c1520",border:"1px solid #1a2e44",borderRadius:6,color:"#c9d1d9",fontSize:12,fontFamily:"sans-serif",outline:"none",resize:"vertical",minHeight:60,lineHeight:1.7}}/>
-              </div>
-            </div>
-            <button onClick={addCustomClause} disabled={!newLabel.trim()||!newTitle.trim()||!newEn.trim()} style={{padding:"9px 22px",background:newLabel.trim()&&newTitle.trim()&&newEn.trim()?"#16a34a":"#101825",color:newLabel.trim()&&newTitle.trim()&&newEn.trim()?"#fff":"#3a5a70",border:"none",borderRadius:7,cursor:newLabel.trim()&&newTitle.trim()&&newEn.trim()?"pointer":"default",fontSize:13,fontFamily:"sans-serif",marginBottom:24}}>
-              + Add Clause
-            </button>
-
-            {customRiders.length>0&&(
-              <div>
-                <div style={{fontSize:12,color:"#3a5a70",fontFamily:"sans-serif",marginBottom:8}}>Custom clauses added ({customRiders.length}):</div>
-                {customRiders.map(c=>(
-                  <div key={c.no} style={{background:"#090d14",border:"1px solid #0a2018",borderLeft:"3px solid #16a34a",borderRadius:7,padding:"10px 14px",marginBottom:6,display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
-                    <div>
-                      <span style={{fontSize:10,background:"#0a2018",color:"#4ade80",padding:"1px 6px",borderRadius:3,fontWeight:700,fontFamily:"sans-serif",marginRight:8}}>CUSTOM</span>
-                      <span style={{fontSize:12,color:"#4ade80",fontFamily:"sans-serif",fontWeight:600}}>{c.label}</span>
-                      <span style={{fontSize:12,color:"#c0d0dc",fontFamily:"'Georgia',serif",marginLeft:8}}>{c.title}</span>
-                      <div style={{fontSize:11,color:"#3a5a70",fontFamily:"sans-serif",marginTop:4}}>{c.en.slice(0,100)}…</div>
-                    </div>
-                    <button onClick={()=>removeCustom(c.no)} style={{fontSize:10,background:"#2a0d0d",border:"1px solid #7a1a1a",borderRadius:4,color:"#f87171",cursor:"pointer",padding:"3px 8px",fontFamily:"sans-serif",flexShrink:0,marginLeft:10}}>Remove</button>
-                  </div>
-                ))}
-              </div>
-            )}
-            {customRiders.length===0&&<div style={{color:"#2a4060",fontSize:12,fontFamily:"sans-serif"}}>No custom clauses added yet.</div>}
-          </div>
-        )}
-      </div>
-    </div>
-    </PasswordGate>
-  );
-}
