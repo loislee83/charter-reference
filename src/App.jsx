@@ -443,7 +443,7 @@ export default function App() {
   const [openId, setOpenId]     = useState(null);
   // Quiz state
   const [quizType, setQuizType] = useState(null); // null | "bt" | "rd"
-  const [quizBank, setQuizBank] = useState([]);
+  const [quizBank, setQuizBank] = useState(null);
   const [qIdx, setQIdx]         = useState(0);
   const [qAns, setQAns]         = useState(null);
   const [qScore, setQScore]     = useState(0);
@@ -483,7 +483,7 @@ export default function App() {
     setQIdx(0); setQAns(null); setQScore(0); setQDone(false);
   }
 
-  function resetQuiz() { setQuizType(null); setQuizBank([]); setQIdx(0); setQAns(null); setQScore(0); setQDone(false); }
+  function resetQuiz() { setQuizType(null); setQuizBank(null); setQIdx(0); setQAns(null); setQScore(0); setQDone(false); }
 
   const searchResults = query.trim().length >= 1 ? (() => {
     const bt = BOXTIME.map(c=>({...c,src:"BT",score:scoreMatch(c,query)})).filter(c=>c.score>0);
