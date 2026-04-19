@@ -678,7 +678,10 @@ export default function App() {
             ):(q&&(
               <div>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
-                  <div style={{fontSize:12,color:"#2a4a60",fontFamily:"sans-serif"}}>{quizType==="bt"?"BOXTIME Charter Party Reference":"Rider Clauses"}</div>
+                  <div style={{display:"flex",alignItems:"center",gap:10}}>
+                    <button onClick={resetQuiz} style={{padding:"3px 10px",background:"none",border:"1px solid #1a3050",borderRadius:6,color:"#3a5a70",cursor:"pointer",fontFamily:"sans-serif",fontSize:11}}>← Exit</button>
+                    <div style={{fontSize:12,color:"#2a4a60",fontFamily:"sans-serif"}}>{quizType==="bt"?"BOXTIME Charter Party Reference":"Rider Clauses"}</div>
+                  </div>
                   <div style={{fontSize:12,color:"#3a6a80",fontFamily:"sans-serif"}}>{qIdx+1} / {quizBank.length} · Score: {qScore}</div>
                 </div>
                 <div style={{background:"#090d14",border:"1px solid #1a3050",borderRadius:10,padding:"18px 20px",marginBottom:14}}>
