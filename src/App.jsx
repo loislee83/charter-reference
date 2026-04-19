@@ -441,7 +441,6 @@ export default function App() {
   const [query, setQuery]       = useState("");
   const [topic, setTopic]       = useState(null);
   const [openId, setOpenId]     = useState(null);
-  const [aiLoad, setAiLoad]     = useState(false);  // used by BIMCO update checker only
   // Quiz state
   const [quizType, setQuizType] = useState(null); // null | "bt" | "rd"
   const [quizBank, setQuizBank] = useState([]);
@@ -540,7 +539,7 @@ export default function App() {
     );
   }
 
-  const q = quizBank[qIdx];
+  const q = quizBank ? quizBank[qIdx] : null;
 
   return (
     <PasswordGate>
@@ -595,7 +594,7 @@ export default function App() {
               <div style={{color:"#1a3050",fontSize:12,fontFamily:"sans-serif",marginTop:8}}>
                 <div style={{fontWeight:600,marginBottom:6,color:"#2a4a60"}}>📋 Quick Reference</div>
                 <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-                  {["delivery","hire","off hire","lashing","bunker","redelivery","war","arbitration","cargo","survey"].map(t=>(
+                  {["delivery","hire","off hire","lashing","bunker","redelivery","war","arbitration","cargo","survey","stevedore","reefer","piracy","commission","general average","insurance","deviation","cancelling","subletting","pollution","flag","drydock","seaworthiness","towage","watchmen"].map(t=>(
                     <button key={t} onClick={()=>setQuery(t)} style={{padding:"4px 10px",background:"#090d14",border:"1px solid #1a3050",borderRadius:12,color:"#3a6a80",fontSize:11,fontFamily:"sans-serif",cursor:"pointer"}}>{t}</button>
                   ))}
                 </div>
@@ -676,7 +675,7 @@ export default function App() {
                   <button onClick={resetQuiz} style={{padding:"10px 22px",background:"#090d14",border:"1px solid #1a3050",borderRadius:8,color:"#3a6a80",cursor:"pointer",fontFamily:"sans-serif",fontSize:13}}>Back to Menu</button>
                 </div>
               </div>
-            ):(
+            ):(q&&(
               <div>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
                   <div style={{fontSize:12,color:"#2a4a60",fontFamily:"sans-serif"}}>{quizType==="bt"?"BOXTIME Charter Party Reference":"Rider Clauses"}</div>
@@ -718,7 +717,7 @@ export default function App() {
                   </div>
                 )}
               </div>
-            )}
+            ))}
           </div>
         )}
 
